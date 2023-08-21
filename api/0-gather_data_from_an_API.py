@@ -5,6 +5,10 @@ from sys import argv
 
 
 if __name__ == "__main__":
+
+    if len(argv) != 2:
+        exit()
+
     user_id = argv[1]
     user_url = 'https://jsonplaceholder.typicode.com/users/{}'.format(user_id)
     user = requests.get(user_url).json()
