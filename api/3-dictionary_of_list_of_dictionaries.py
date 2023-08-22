@@ -31,5 +31,5 @@ if __name__ == "__main__":
             ]
         user_task[user["id"]] = data
 
-        with open(f'{argv[1]}.json', 'w', encoding='UTF=8') as f:
+        with open("todo_all_employees.json", 'w', encoding='UTF=8') as f:
             json.dump(user_task, f)
