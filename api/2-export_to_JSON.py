@@ -18,11 +18,16 @@ if __name__ == "__main__":
                  .format(user_id))
     todos = requests.get(todos_url).json()
 
-    completed_tasks = [task for task in todos if task.get('completed') is True]
+    data = {
+        argv[1]: [
+            {
+                "task": task["title"],
+                "completed": task["completed"],
+                "username": user["username"]
+            }
+            for task in todos
+        ]
+    }
 
-    data = {user_id: [{"task": task.get('title'), "completed":
-                task.get('completed'), "username": user.get('username')}
-                for task in completed_tasks]}
-    
-    with open("{}.csv".format(user_id), "w", encoding='UTF8') as filename:
-        json.dump(data, filename)
+    with open(f'{argv[1]}.json', 'w', encoding='UTF=8') as f:
+        json.dump(data, f)
