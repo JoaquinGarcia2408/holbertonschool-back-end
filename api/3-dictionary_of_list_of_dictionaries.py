@@ -20,9 +20,8 @@ if __name__ == "__main__":
 
     user_task = {}
 
-    for user in users
-        data = {
-            argv[1]: [
+    for user in users:
+        data = [
                 {
                     "task": task["title"],
                     "completed": task["completed"],
@@ -30,8 +29,7 @@ if __name__ == "__main__":
                 }
                 for task in todos if user["id"] == task["userId"]
             ]
-        user_task[user["id"]] = 
-        }
+        user_task[user["id"]] = data
 
         with open(f'{argv[1]}.json', 'w', encoding='UTF=8') as f:
-            json.dump(data, f)
+            json.dump(user_task, f)
