@@ -7,15 +7,11 @@ from sys import argv
 
 if __name__ == "__main__":
 
-    if len(argv) != 2:
-        exit()
 
-    user_id = argv[1]
-    user_url = 'https://jsonplaceholder.typicode.com/users/{}'.format(user_id)
-    user = requests.get(user_url).json()
+    user_url = 'https://jsonplaceholder.typicode.com/users'
+    users = requests.get(user_url).json()
 
-    todos_url = ('https://jsonplaceholder.typicode.com/users/{}/todos'
-                 .format(user_id))
+    todos_url = 'https://jsonplaceholder.typicode.com/todos'
     todos = requests.get(todos_url).json()
 
     user_task = {}
