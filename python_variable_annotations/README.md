@@ -1,1 +1,1 @@
-NO ESTOY VACIO
+Python - Variable Annotations
